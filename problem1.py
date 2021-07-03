@@ -1,6 +1,9 @@
 # Problem 1: Salary Conversion
 # David Khowanto
+
+# This program didn't check for acceptable file type, url, and content of both file and url
 # I think this problem doesn't need oop for testing
+# Assumption: json file and url always available and correct, including the contents
 
 ## Import Libraries
 import json
