@@ -12,14 +12,14 @@ def getJsonListFromApi(url):
   return json.loads(requests.get(url).text)
 
 ## Main logic for salary conversion
-def salaryInversion(json_file):
+def salaryInversion(json_file, json_url):
   # Get data from JSON file
   f = open(json_file)
   data_file = json.load(f)['array']
   f.close()
 
   # Get data from JSON url
-  data_url = getJsonListFromApi("http://jsonplaceholder.typicode.com/users")
+  data_url = getJsonListFromApi(json_url)
 
   # Join fetched data from url with JSON file
   temp_dict = defaultdict(dict)
@@ -58,4 +58,4 @@ def testEndpointOutput(endpoint):
       print("test with id", elmt["id"], "succeed")
 
 ## Run the test
-testEndpointOutput(salaryInversion('JSON Files/salary_data.json'))
+testEndpointOutput(salaryInversion('JSON Files/salary_data.json', "http://jsonplaceholder.typicode.com/users"))
