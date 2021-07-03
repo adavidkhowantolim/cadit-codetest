@@ -1,5 +1,6 @@
 # Problem 1: Salary Conversion
 # David Khowanto
+# I think this problem doesn't need oop for testing
 
 ## Import Libraries
 import json
@@ -11,9 +12,9 @@ def getJsonListFromApi(url):
   return json.loads(requests.get(url).text)
 
 ## Main logic for salary conversion
-def salaryInversion():
+def salaryInversion(json_file):
   # Get data from JSON file
-  f = open('JSON Files/salary_data.json',)
+  f = open(json_file)
   data_file = json.load(f)['array']
   f.close()
 
@@ -45,6 +46,7 @@ def salaryInversion():
 def testEndpointOutput(endpoint): 
   # Output from the endpoint should be: id, name, username, email, address, phone, salary in IDR, and salary in USD
   expected_output = ['id', 'name', 'username', 'email','address', 'phone', 'salaryInIDR', 'salaryInUSD']
+  # Output final JSON Data
   print("Output:", json.dumps(endpoint, indent=4))
   # assert JSON keys
   for elmt in endpoint:
@@ -56,4 +58,4 @@ def testEndpointOutput(endpoint):
       print("test with id", elmt["id"], "succeed")
 
 ## Run the test
-testEndpointOutput(salaryInversion())
+testEndpointOutput(salaryInversion('JSON Files/salary_data.json'))
