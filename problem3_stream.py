@@ -5,7 +5,8 @@
 
 # The program streams data and write into log file every 2 minutes
 #   Press button on GUI to stop streaming data
-#   Mock data are used for test purposes
+#   Mock data are used for test purposes (saved on mock_data.csv)
+#   Mock data timestamp has 16 hours range
 
 # import libraries
 from csv import writer
