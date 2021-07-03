@@ -38,10 +38,10 @@ def sensorAggregation(json_file, aggfunc):
     return(-1, aggfunc)
 
 ## Run the program
-# sensorAggregation('JSON Files/sensor_data.json', 'all')
-# sensorAggregation('JSON Files/sensor_data.json', 'min')
-# sensorAggregation('JSON Files/sensor_data.json', 'max')
-# sensorAggregation('JSON Files/sensor_data.json', 'median')
-# sensorAggregation('JSON Files/sensor_data.json', 'mean')
-# sensorAggregation('JSON Files/sensor_data.json', 'avg')
-# sensorAggregation('JSON Files/sensor_data.json', "percentile")
+sensorAggregation('JSON Files/sensor_data.json', 'all')
+sensorAggregation('JSON Files/sensor_data.json', 'min')
+sensorAggregation('JSON Files/sensor_data.json', 'max')
+sensorAggregation('JSON Files/sensor_data.json', 'median')
+sensorAggregation('JSON Files/sensor_data.json', 'mean')
+sensorAggregation('JSON Files/sensor_data.json', 'avg')
+sensorAggregation('JSON Files/sensor_data.json', "percentile")
