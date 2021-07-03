@@ -1,15 +1,16 @@
 # Problem 1: Salary Conversion
 # David Khowanto
 
+## Import Libraries
 import json
 import requests
 from collections import defaultdict, Counter
 
-# Returns list of JSON from url / API
+## Returns list of JSON from url / API
 def getJsonListFromApi(url):
   return json.loads(requests.get(url).text)
 
-# Main logic for salary conversion
+## Main logic for salary conversion
 def salaryInversion():
   # Get data from JSON file
   f = open('JSON Files/salary_data.json',)
@@ -40,7 +41,7 @@ def salaryInversion():
   # Print final data
   return(res)
 
-# test expected fields in endpoint
+## test expected fields in endpoint
 def testEndpointOutput(endpoint): 
   # Output from the endpoint should be: id, name, username, email, address, phone, salary in IDR, and salary in USD
   expected_output = ['id', 'name', 'username', 'email','address', 'phone', 'salaryInIDR', 'salaryInUSD']
@@ -54,5 +55,5 @@ def testEndpointOutput(endpoint):
     else:
       print("test with id", elmt["id"], "succeed")
 
-# Run the test
+## Run the test
 testEndpointOutput(salaryInversion())
