@@ -54,8 +54,9 @@ file_label.grid(row=0, column=0)
 time_label = tk.Label(master=window, textvariable=text)
 time_label.grid(row=1, column=0)
 
-btn_increase = tk.Button(master=window, text="Stop Streaming and Logging", command=window.destroy)
-btn_increase.grid(row=2, column=0, sticky="nsew")
+btn_exit = tk.Button(
+    master=window, text="Stop Streaming and Logging", command=window.destroy)
+btn_exit.grid(row=2, column=0, sticky="nsew")
 
 window.after(1000, writeCsvFile)  # After 1 second, call writeCsvFile
 
