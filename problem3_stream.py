@@ -6,7 +6,7 @@
 # The program streams data and write into log file every 2 minutes
 #   Press button on GUI to stop streaming data
 #   Mock data are used for test purposes (saved on mock_data.csv)
-#   Mock data timestamp has 16 hours range
+#   display and stream ratio 4000:500 ms for mock data
 
 # import libraries
 from csv import writer
@@ -16,15 +16,13 @@ import tkinter as tk
 
 # constants 
 SLEEP_TIME = 120 * 1000 # miliseconds
-# FILENAME = 'log.csv'
-FILENAME = 'mock_data.csv' #used_for_mock_data
-# now = 1625328043 #used_for_mock_data
+FILENAME = 'log.csv'
+# FILENAME = 'mock_data.csv' #used_for_mock_data
 
 ## stream data every 2 minutes and write to log file
 def writeCsvFile():
   # append log file (csv)
   with open(FILENAME, 'a', newline='') as log_file:
-    # global now #used_for_mock_data
     # csv file is delimited with comma
     log_writer = writer(log_file, delimiter=',')
     for n in range(1,6):
@@ -34,12 +32,10 @@ def writeCsvFile():
       curr_time = time()                  # current epoch time
       # write to the end of log file 
       log_writer.writerow([curr_time, room_number, temp_val, humi_val])
-      # log_writer.writerow([now, room_number, temp_val, humi_val]) #used_for_mock_data
-      # now += 120 #used_for_mock_data 
     # notification for time of last streamed data
     text.set("Last Write: " + strftime("%a, %d %b %Y %H:%M:%S WIB", localtime(curr_time)))
-    # window.after(SLEEP_TIME, writeCsvFile)
-    window.after(500, writeCsvFile) #used_for_mock_data
+    window.after(SLEEP_TIME, writeCsvFile)
+    # window.after(500, writeCsvFile) #used_for_mock_data
 
 window = tk.Tk()
 
