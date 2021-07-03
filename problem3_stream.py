@@ -16,7 +16,8 @@ import tkinter as tk
 
 # constants 
 SLEEP_TIME = 120 * 1000 # miliseconds
-FILENAME = 'log.csv'
+# FILENAME = 'log.csv'
+FILENAME = 'mock_data.csv' #used_for_mock_data
 # now = 1625328043 #used_for_mock_data
 
 ## stream data every 2 minutes and write to log file
@@ -37,8 +38,8 @@ def writeCsvFile():
       # now += 120 #used_for_mock_data 
     # notification for time of last streamed data
     text.set("Last Write: " + strftime("%a, %d %b %Y %H:%M:%S WIB", localtime(curr_time)))
-    window.after(SLEEP_TIME, writeCsvFile)
-    # window.after(10, writeCsvFile) #used_for_mock_data
+    # window.after(SLEEP_TIME, writeCsvFile)
+    window.after(500, writeCsvFile) #used_for_mock_data
 
 window = tk.Tk()
 
